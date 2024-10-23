@@ -5,7 +5,5 @@
 ## 热门搜索
 
 {searches}
-
-## 热门话题
-
-{topics}
+;## 热门话题
+;{topics}
