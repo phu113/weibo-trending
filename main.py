@@ -9,6 +9,8 @@ def generate_archive_md(searches, topics):
     """生成归档readme
     """
     def search(item):
+        if "icon" in item.keys() and "4_0.png" in item['icon']:
+            item['desc'] = "爆" + item['desc'] 
         return '1. [{}]({})'.format(item['desc'], item['scheme'])
 
     def topic(item):
@@ -83,22 +85,24 @@ def save_archive_md(md):
     util.write_text(file, md)
 
 
-def save_raw_content(content: str, filePrefix: str):
-    filename = '{}-{}.json'.format(filePrefix, util.current_date())
-    file = os.path.join('raw', filename)
-    util.write_text(file, content)
+# def save_raw_content(content: str, filePrefix: str):
+#     filename = '{}-{}.json'.format(filePrefix, util.current_date())
+#     file = os.path.join('raw', filename)
+#     util.write_text(file, content)
 
 
 def run():
     weibo = Weibo()
     # 热搜
     searches, resp = weibo.get_hot_search()
-    if resp:
-        save_raw_content(resp.text, 'hot-search')
+
     # 话题榜
     topics, resp = weibo.get_hot_topic()
-    if resp:
-        save_raw_content(resp.text, 'hot-topic')
+
+    # if resp:
+    #     save_raw_content(resp.text, 'hot-search')
+    # if resp:
+    #     save_raw_content(resp.text, 'hot-topic')
 
     # 最新数据
     readme = generate_readme(searches, topics)
