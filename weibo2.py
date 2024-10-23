@@ -63,7 +63,7 @@ class Weibo:
                         items = cards[0]["card_group"]
         except:
             logger.exception('get hot search failed')
-        return (items, resp)
+        return (items[:10], resp) #only return top10 items
 
     def get_hot_topic(self):
         """热门话题
