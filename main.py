@@ -10,7 +10,9 @@ def generate_archive_md(searches, topics):
     """
     def search(item):
         if "icon" in item.keys() and "4_0.png" in item['icon']:
-            item['desc'] = "爆" + item['desc'] 
+            item['desc'] = "爆|" + item['desc'] +  "_" + util.current_date()
+        else:
+            item['desc'] = item['desc'] +  "_" + util.current_date()
         return '1. [{}]({})'.format(item['desc'], item['scheme'])
 
     def topic(item):
@@ -80,7 +82,7 @@ def save_readme(md):
 
 def save_archive_md(md):
     logger.debug('archive md:%s', md)
-    name = '{}.md'.format(util.current_date())
+    name = '{}.md'.format(util.current_first_date_week())
     file = os.path.join('archives', name)
     util.write_text(file, md)
 
