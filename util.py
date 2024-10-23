@@ -21,13 +21,13 @@ def current_time():
 def current_date():
     return datetime.now().astimezone().strftime('%Y-%m-%d')
 
-def current_firt_date_week():
+def current_first_date_week():
     # Get the current date
     today = datetime.today()
     
     # Calculate the start of the week (Monday)
     start_of_week = today - timedelta(days=today.weekday())
-    return start_of_week
+    return start_of_week.date()
 
 def ensure_dir(file: str):
     directory = os.path.abspath(os.path.dirname(file))
