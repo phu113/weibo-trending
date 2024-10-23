@@ -93,6 +93,7 @@ def save_archive_md(md):
 #     util.write_text(file, content)
 
 def delete_old_files():
+    now = time.time()
     six_months_ago = now - (1 * 30 * 24 * 60 * 60)  # Approximate 6 months in seconds
     
     # Iterate over the files in the folder
