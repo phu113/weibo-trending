@@ -3,7 +3,7 @@ name: schedule-update
 on:
   schedule:
     # 每小时整点执行 0 */12 * * * 每分钟执行* * * * *
-    - cron: "* * * * *"
+    - cron: "0 */12 * * *"
   push:
     branches: 
       - main
