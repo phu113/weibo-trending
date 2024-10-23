@@ -37,8 +37,9 @@ def ensure_dir(file: str):
 
 def write_text(file: str, text: str):
     ensure_dir(file)
-    with open(file, 'w') as f:
+    with open(file, 'a') as f:
         f.write(text)
+        f.write("\n")
 
 
 if __name__ == "__main__":
