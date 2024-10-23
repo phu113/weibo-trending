@@ -92,7 +92,22 @@ def save_archive_md(md):
 #     file = os.path.join('raw', filename)
 #     util.write_text(file, content)
 
-
+def delete_old_files():
+    six_months_ago = now - (1 * 30 * 24 * 60 * 60)  # Approximate 6 months in seconds
+    
+    # Iterate over the files in the folder
+    for filename in os.listdir("archives"):
+        file_path = os.path.join("archives", filename)
+        
+        # Check if it's a file (not a directory)
+        if os.path.isfile(file_path):
+            # Get the file's last modification time
+            file_mtime = os.path.getmtime(file_path)
+            
+            # If the file is older than 6 months, delete it
+            if file_mtime < six_months_ago:
+                os.remove(file_path)
+                print(f"Deleted: {file_path}")
 def run():
     weibo = Weibo()
     # 热搜
@@ -112,6 +127,7 @@ def run():
     # 归档
     archiveMd = generate_archive_md(searches, topics)
     save_archive_md(archiveMd)
+    delete_old_files()
 
 
 if __name__ == "__main__":
