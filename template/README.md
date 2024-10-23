@@ -1,15 +1,7 @@
 # weibo-hot-hub
 
-记录[微博](https://www.weibo.com)从 2021-1-7 日至今的热搜和热门话题。每小时抓取一次数据，按天[归档](archives)。
-
-## 相关项目
-
-- [知乎热榜](https://github.com/snaildev/zhihu-hot-hub)
-- [头条热榜](https://github.com/snaildev/toutiao-hot-hub)
-- [抖音热榜](https://github.com/snaildev/douyin-hot-hub)
-- [GitHub热榜](https://github.com/snaildev/github-hot-hub)
-- [v2ex热榜](https://github.com/snaildev/v2ex-hot-hub)
-
+记录[微博](https://www.weibo.com)从 2024-1-7 日至今的热搜和热门话题。每天抓取2次数据，按天[归档](archives)。
+基础代码参考网络，客制化增加新功能。
 
 `更新时间：{updateTime}`
 
@@ -17,9 +9,6 @@
 
 {searches}
 
-## 热门话题
-
-{topics}
 
 ## 历史归档
 
