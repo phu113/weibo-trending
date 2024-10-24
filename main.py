@@ -97,8 +97,8 @@ def delete_old_files():
     six_months_ago = now - (11 * 60 * 60)  # Approximate 6 months in seconds 1 * 30 * 24 * 60 * 60
     
     # Iterate over the files in the folder
-    for filename in os.listdir("/archives"):
-        file_path = os.path.join("/archives", filename)
+    for filename in os.listdir("archives"):
+        file_path = os.path.join("archives", filename)
         print(file_path)
         # Check if it's a file (not a directory)
         if os.path.isfile(file_path):
