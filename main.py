@@ -97,7 +97,7 @@ def delete_old_files():
     current_date = datetime.now()
     
     # Calculate the date 6 months ago
-    six_months_ago = current_date - relativedelta(months=1)
+    six_months_ago = current_date - relativedelta(months=6)
     
     # Format the result as a string in YYYY-MM format
     six_months_ago_str = six_months_ago.strftime('%Y-%m')
