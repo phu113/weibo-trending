@@ -129,7 +129,7 @@ def run():
     # 归档
     archiveMd = generate_archive_md(searches, topics)
     save_archive_md(archiveMd)
-    delete_old_files()
+    # delete_old_files()
 
 
 if __name__ == "__main__":
