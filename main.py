@@ -105,13 +105,13 @@ def delete_old_files():
     # Iterate over the files in the folder
     for filename in os.listdir("archives"):
         file_path = os.path.join("archives", filename)
-        print(file_path)
+
         # Check if it's a file (not a directory)
         if os.path.isfile(file_path):           
-            # If the file's name include 6 months before, delete it
+            # If the file's name include 6 months before, 
+            # delete it(only delete that month file)
             if six_months_ago_str in filename:
-                print('a')
-                # os.remove(file_path) os.remove('archives/2024-09-01.md')
+                os.remove(file_path) # os.remove('archives/2024-09-01.md')
 
 def run():
     weibo = Weibo()
