@@ -39,7 +39,7 @@ def write_text(file: str, text: str):
     with open(file, 'w') as f:
         f.write(text)
         
-def write_append(file: str, text: str):
+def append_text(file: str, text: str):
     ensure_dir(file)
     with open(file, 'a') as f:
         f.write(text)
