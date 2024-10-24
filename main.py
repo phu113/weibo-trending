@@ -99,14 +99,14 @@ def delete_old_files():
     # Iterate over the files in the folder
     for filename in os.listdir("archives"):
         file_path = os.path.join("archives", filename)
-        print(os.path.isfile(file_path))
+        print(file_path)
         # Check if it's a file (not a directory)
         if os.path.isfile(file_path):
             # Get the file's last modification time
             file_mtime = os.path.getmtime(file_path)
-            print(file_mtime)
+            print(file_mtime > six_months_ago)
             # If the file is older than 6 months, delete it
-            if file_mtime < six_months_ago:
+            if file_mtime > six_months_ago:
                 print('a')
                 os.remove(file_path)
 
