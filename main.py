@@ -84,7 +84,7 @@ def save_archive_md(md):
     logger.debug('archive md:%s', md)
     name = '{}.md'.format(util.current_first_date_week())
     file = os.path.join('archives', name)
-    util.write_text(file, md)
+    util.append_text(file, md)
 
 
 # def save_raw_content(content: str, filePrefix: str):
@@ -94,7 +94,7 @@ def save_archive_md(md):
 
 def delete_old_files():
     now = time.time()
-    six_months_ago = now - (11 * 60 * 60)  # Approximate 6 months in seconds 1 * 30 * 24 * 60 * 60
+    six_months_ago = now - ( 60)  # Approximate 6 months in seconds 1 * 30 * 24 * 60 * 60
     os.remove('archives/2024-09-01.md')
     # Iterate over the files in the folder
     for filename in os.listdir("archives"):
