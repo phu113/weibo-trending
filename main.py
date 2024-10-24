@@ -95,7 +95,7 @@ def save_archive_md(md):
 def delete_old_files():
     now = time.time()
     six_months_ago = now - ( 60)  # Approximate 6 months in seconds 1 * 30 * 24 * 60 * 60
-    os.remove('archives/2024-09-01.md')
+    
     # Iterate over the files in the folder
     for filename in os.listdir("archives"):
         file_path = os.path.join("archives", filename)
@@ -109,7 +109,7 @@ def delete_old_files():
             # If the file is older than 6 months, delete it
             if file_mtime > six_months_ago:
                 print('a')
-                # os.remove(file_path)
+                # os.remove(file_path) os.remove('archives/2024-09-01.md')
 
 def run():
     weibo = Weibo()
