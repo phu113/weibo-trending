@@ -1,9 +1,9 @@
 import os
 import time
+from dateutil.relativedelta import relativedelta
 import util
 from util import logger
 from weibo2 import Weibo
-
 
 def generate_archive_md(searches, topics):
     """生成归档readme
@@ -93,21 +93,23 @@ def save_archive_md(md):
 #     util.write_text(file, content)
 
 def delete_old_files():
-    now = time.time()
-    six_months_ago = now - ( 60)  # Approximate 6 months in seconds 1 * 30 * 24 * 60 * 60
+    # Get the current date
+    current_date = datetime.now()
+    
+    # Calculate the date 6 months ago
+    six_months_ago = current_date - relativedelta(months=1)
+    
+    # Format the result as a string in YYYY-MM format
+    six_months_ago_str = six_months_ago.strftime('%Y-%m')
     
     # Iterate over the files in the folder
     for filename in os.listdir("archives"):
         file_path = os.path.join("archives", filename)
         print(file_path)
         # Check if it's a file (not a directory)
-        if os.path.isfile(file_path):
-            # Get the file's last modification time
-            file_mtime = os.path.getmtime(file_path)
-            readable_time = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(file_mtime))
-            print(readable_time)
-            # If the file is older than 6 months, delete it
-            if file_mtime > six_months_ago:
+        if os.path.isfile(file_path):           
+            # If the file's name include 6 months before, delete it
+            if six_months_ago_str in filename:
                 print('a')
                 # os.remove(file_path) os.remove('archives/2024-09-01.md')
 
