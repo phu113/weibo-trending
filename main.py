@@ -104,7 +104,8 @@ def delete_old_files():
         if os.path.isfile(file_path):
             # Get the file's last modification time
             file_mtime = os.path.getmtime(file_path)
-            print(file_mtime > six_months_ago)
+            readable_time = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(file_mtime))
+            print(readable_time)
             # If the file is older than 6 months, delete it
             if file_mtime > six_months_ago:
                 print('a')
@@ -129,7 +130,7 @@ def run():
     # 归档
     archiveMd = generate_archive_md(searches, topics)
     save_archive_md(archiveMd)
-    # delete_old_files()
+    delete_old_files()
 
 
 if __name__ == "__main__":
