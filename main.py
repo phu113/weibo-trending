@@ -1,6 +1,6 @@
 import os
-import time
 from dateutil.relativedelta import relativedelta
+from datetime import datetime, timedelta
 import util
 from util import logger
 from weibo2 import Weibo
