@@ -55,11 +55,11 @@ def generate_readme(searches, topics):
                 detail = item['card_expand']['content']
         return '1. [{}]({})\n    - {}\n'.format(item['title_sub'], item['scheme'], detail)
 
-    searchMd = '暂无数据'
+    searchMd = '暂无数据1'
     if searches:
         searchMd = '\n'.join([search(item) for item in searches])
 
-    topicMd = '暂无数据'
+    topicMd = '暂无数据2'
     if topics:
         topicMd = '\n'.join([topic(item) for item in topics])
 
@@ -117,7 +117,9 @@ def run():
     weibo = Weibo()
     # 热搜
     searches, resp = weibo.get_hot_search()
-
+    print(type(searches)
+    print('get serches')
+    
     # 话题榜
     topics, resp = weibo.get_hot_topic()
 
