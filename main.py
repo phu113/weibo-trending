@@ -3,7 +3,7 @@ from dateutil.relativedelta import relativedelta
 from datetime import datetime, timedelta
 import util
 from util import logger
-from weibo2 import Weibo
+from weibo import Weibo
 
 def generate_archive_md(searches, topics):
     """生成归档readme
@@ -22,11 +22,11 @@ def generate_archive_md(searches, topics):
                 detail = item['card_expand']['content']
         return '1. [{}]({})\n    - {}\n'.format(item['title_sub'], item['scheme'], detail)
 
-    searchMd = f'暂无数据3 {type(searches)}'
+    searchMd = f'暂无数据3 {type(searches)} {len(searches)}'
     if searches:
         searchMd = '\n'.join([search(item) for item in searches])
 
-    topicMd = '暂无数据4'
+    topicMd = '暂无数据'
     if topics:
         topicMd = '\n'.join([topic(item) for item in topics])
 
@@ -55,11 +55,11 @@ def generate_readme(searches, topics):
                 detail = item['card_expand']['content']
         return '1. [{}]({})\n    - {}\n'.format(item['title_sub'], item['scheme'], detail)
 
-    searchMd = '暂无数据1'
+    searchMd = '暂无数据'
     if searches:
         searchMd = '\n'.join([search(item) for item in searches])
 
-    topicMd = '暂无数据2'
+    topicMd = '暂无数据'
     if topics:
         topicMd = '\n'.join([topic(item) for item in topics])
 
