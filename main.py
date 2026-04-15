@@ -22,7 +22,7 @@ def generate_archive_md(searches, topics):
                 detail = item['card_expand']['content']
         return '1. [{}]({})\n    - {}\n'.format(item['title_sub'], item['scheme'], detail)
 
-    searchMd = '暂无数据3'
+    searchMd = f'暂无数据3 {type(searches)}'
     if searches:
         searchMd = '\n'.join([search(item) for item in searches])
 
