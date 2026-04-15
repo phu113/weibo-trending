@@ -117,7 +117,7 @@ def run():
     weibo = Weibo()
     # 热搜
     searches, resp = weibo.get_hot_search()
-    print(type(searches)
+    print(type(searches))
     print('get serches')
     
     # 话题榜
